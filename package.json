@@ -16,9 +16,14 @@
     "format": "prettier --write --experimental-cli src/"
   },
   "dependencies": {
+    "@primeuix/themes": "^2.0.3",
+    "@unhead/vue": "3.0.0-beta.9",
+    "@vueuse/core": "^14.2.1",
     "pinia": "^3.0.4",
+    "primevue": "^4.5.4",
     "vue": "^3.5.28",
-    "vue-router": "^5.0.2"
+    "vue-router": "^5.0.2",
+    "vue3-lazyload": "^0.3.8"
   },
   "devDependencies": {
     "@tsconfig/node24": "^24.0.4",
@@ -38,6 +43,7 @@
     "npm-run-all2": "^8.0.4",
     "oxlint": "^1.50.0",
     "prettier": "3.8.1",
+    "sass": "^1.97.3",
     "typescript": "~5.9.3",
     "vite": "^7.3.1",
     "vite-plugin-vue-devtools": "^8.0.6",
