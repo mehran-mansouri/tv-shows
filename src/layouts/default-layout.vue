@@ -2,7 +2,20 @@
 
 <template>
   <div>default layout</div>
-  <slot />
+  <div class="container">
+    <slot />
+  </div>
 </template>
 
-<style scoped></style>
+<style scoped lang="scss">
+@use '../styles/tokens' as tokens;
+
+.container {
+  margin: 0 tokens.$spacing-100;
+
+  & > * {
+    margin: auto;
+    max-width: 1980px;
+  }
+}
+</style>

@@ -1,6 +1,6 @@
 interface Response<T> {
   data?: T | null
-  error?: never
+  error?: unknown
 }
 
 class HttpClient {
@@ -17,13 +17,13 @@ class HttpClient {
 
     try {
       const response = await fetch(`${baseUrl}${path}`)
+      if(!response.ok) return { error: response.status, data: null }
       const data = (await response.json()) as T
       return {
         data: data,
       }
     } catch (e) {
       return {
-        // @ts-expect-error type is not declared
         error: e,
       }
     }

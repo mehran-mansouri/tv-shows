@@ -16,7 +16,6 @@ export default function () {
       hasError.value = Boolean(error);
       genres.value = groupShowsByGenre(data ?? []);
       isLoading.value = false;
-      console.log(genres.value);
     }
   })
 

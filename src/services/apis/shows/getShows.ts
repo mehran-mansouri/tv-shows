@@ -1,5 +1,5 @@
 import HttpClient from '@/services/http'
-import type { Show } from '@/types/Show';
+import type { Show } from '@/types';
 
 const getShows = async () => {
   const { data, error } = await HttpClient.get<Show[]>('/shows');
