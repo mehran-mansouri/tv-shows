@@ -15,11 +15,16 @@ defineOptions({
 </script>
 
 <style scoped lang="scss">
-.error-icon {
-  width: 320px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+.error {
+  &-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  &-icon {
+    width: 320px;
+  }
 }
 </style>
