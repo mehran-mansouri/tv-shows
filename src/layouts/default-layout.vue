@@ -1,7 +1,9 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import Header from '@/components/header/Header.vue'
+</script>
 
 <template>
-  <div>default layout</div>
+  <Header />
   <div class="container">
     <slot />
   </div>
