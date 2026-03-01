@@ -1,54 +1,98 @@
-# tv-shows
+# TV Shows Application
 
-This template should help get you started developing with Vue 3 in Vite.
+A Vue 3 application built with Vite for browsing TV shows.
 
-## Recommended IDE Setup
+## Prerequisites
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+To run this project, you need to have the following installed:
 
-## Recommended Browser Setup
+- **Node.js**: `^20.19.0` or `>=22.12.0`
+- **Yarn**: `^4.0.0` (Corepack is recommended)
+- **Docker** and **Docker Compose** (optional, for containerized execution)
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+## Getting Started
 
-## Type Support for `.vue` Imports in TS
+You can build and run the application in two ways: using Node + Yarn or via Docker.
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+### 1. Using Node + Yarn
 
-## Customize configuration
+#### Installation
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+Install the project dependencies:
 
-## Project Setup
-
-```sh
-yarn
+```bash
+yarn install
 ```
 
-### Compile and Hot-Reload for Development
+#### Development
 
-```sh
+Start the development server with hot-reload:
+
+```bash
 yarn dev
 ```
 
-### Type-Check, Compile and Minify for Production
+The application will be available at `http://localhost:5173`.
 
-```sh
+#### Production Build
+
+Type-check, compile, and minify for production:
+
+```bash
 yarn build
 ```
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
+The output will be in the `dist` directory.
 
-```sh
+#### Testing
+
+Run unit tests with [Vitest](https://vitest.dev/):
+
+```bash
 yarn test:unit
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+#### Linting
 
-```sh
+Lint files with [ESLint](https://eslint.org/):
+
+```bash
 yarn lint
 ```
+
+---
+
+### 2. Using Docker
+
+#### Development
+
+To run the application in development mode using Docker:
+
+```bash
+docker-compose up
+```
+
+By default, the `frontend` service is configured to map port `80` to the container's port `80`. However, the `dev` stage in the `Dockerfile` runs `yarn dev` (usually port `5173`).
+
+To build and run the production-ready container:
+
+```bash
+docker build -t tv-shows-app .
+docker run -p 8080:80 tv-shows-app
+```
+
+The application will be available at `http://localhost:8080`.
+
+#### Using Docker Compose
+
+If you use `docker-compose.yaml`, it will build the image and start the service:
+
+```bash
+docker-compose up --build
+```
+
+The application will be available at `http://localhost`.
+
+## Project Configuration
+
+See [Vite Configuration Reference](https://vite.dev/config/).
