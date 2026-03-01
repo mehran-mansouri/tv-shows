@@ -1,0 +1,25 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Home.vue snapshot > renders error state correctly 1`] = `
+<div
+  data-v-app=""
+>
+  
+  <error-component-stub />
+  
+</div>
+`;
+
+exports[`Home.vue snapshot > renders genres overview correctly 1`] = `
+<div
+  data-v-app=""
+>
+  
+  <genres-overview-stub
+    genres="[object Object]"
+  />
+  
+</div>
+`;
+
+exports[`Home.vue snapshot > renders loading state correctly 1`] = `<shimmer-stub />`;

@@ -1,0 +1,23 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`default-layout.vue snapshot > renders correctly with slot content 1`] = `
+<div
+  data-v-app=""
+>
+  
+  <header-stub
+    data-v-808d7933=""
+  />
+  <div
+    class="container"
+    data-v-808d7933=""
+  >
+    
+    <div>
+      Main Content
+    </div>
+    
+  </div>
+  
+</div>
+`;
