@@ -1,5 +1,5 @@
-import HttpClient from '@/services/http'
-import type { Show } from '@/types'
+import HttpClient from '@/services/http';
+import type { Show } from '@/types';
 
 interface SearchResult {
   score: number;
@@ -7,12 +7,12 @@ interface SearchResult {
 }
 
 const searchShows = async (searchTerm: string) => {
-  const { data, error } = await HttpClient.get<SearchResult[]>(`/search/shows?q=${searchTerm}`)
+  const { data, error } = await HttpClient.get<SearchResult[]>(`/search/shows?q=${searchTerm}`);
 
   return {
     data: data ?? [],
     error,
-  }
-}
+  };
+};
 
-export default searchShows
+export default searchShows;

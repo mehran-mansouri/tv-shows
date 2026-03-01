@@ -5,8 +5,8 @@ import { storeToRefs } from 'pinia';
 import groupShowsByGenre from '@/utils/groupShowsByGenre';
 
 export default function () {
-  const showStore = useShowStore()
-  const { genres, isLoading, hasError } = storeToRefs(showStore)
+  const showStore = useShowStore();
+  const { genres, isLoading, hasError } = storeToRefs(showStore);
 
   onMounted(async () => {
     if (genres.value.length === 0) {
@@ -17,11 +17,11 @@ export default function () {
       genres.value = groupShowsByGenre(data ?? []);
       isLoading.value = false;
     }
-  })
+  });
 
   return {
     genres,
     isLoading,
     hasError,
-  }
+  };
 }

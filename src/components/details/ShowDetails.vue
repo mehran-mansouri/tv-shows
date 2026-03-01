@@ -24,17 +24,17 @@
 </template>
 
 <script setup lang="ts">
-import type { ShowDetails } from '@/types'
-import StarSvg from '@/assets/star-svg.svg'
-import TimeIcon from '@/assets/time.svg'
-import CastCards from '@/components/details/CastCards.vue'
-import GenreTags from '@/components/details/GenreTags.vue'
+import type { ShowDetails } from '@/types';
+import StarSvg from '@/assets/star-svg.svg';
+import TimeIcon from '@/assets/time.svg';
+import CastCards from '@/components/details/CastCards.vue';
+import GenreTags from '@/components/details/GenreTags.vue';
 
 interface Props {
-  showDetails: ShowDetails
+  showDetails: ShowDetails;
 }
 
-defineProps<Props>()
+defineProps<Props>();
 </script>
 
 <style scoped lang="scss">

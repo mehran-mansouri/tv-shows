@@ -21,16 +21,16 @@
 </template>
 
 <script setup lang="ts">
-import type { Show } from '@/types'
-import { RouterLink } from 'vue-router'
-import StarSvg from '@/assets/star-svg.svg'
-import LoadingImage from '@/assets/loading-image.webp'
+import type { Show } from '@/types';
+import { RouterLink } from 'vue-router';
+import StarSvg from '@/assets/star-svg.svg';
+import LoadingImage from '@/assets/loading-image.webp';
 
 interface Props {
-  show: Show
+  show: Show;
 }
 
-defineProps<Props>()
+defineProps<Props>();
 </script>
 
 <style scoped lang="scss">

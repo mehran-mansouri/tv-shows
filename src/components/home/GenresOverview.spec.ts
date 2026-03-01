@@ -1,35 +1,35 @@
-import { describe, it, expect } from 'vitest'
-import { mount } from '@vue/test-utils'
-import GenresOverview from './GenresOverview.vue'
+import { describe, it, expect } from 'vitest';
+import { mount } from '@vue/test-utils';
+import GenresOverview from './GenresOverview.vue';
 
 describe('GenresOverview.vue', () => {
   it('renders nothing when genres are empty', () => {
     const wrapper = mount(GenresOverview, {
       props: {
-        genres: []
-      }
-    })
+        genres: [],
+      },
+    });
 
-    expect(wrapper.find('div').exists()).toBe(false)
-  })
+    expect(wrapper.find('div').exists()).toBe(false);
+  });
 
   it('renders GenreCarousel for each genre', () => {
     const genres = [
       { title: 'Drama', shows: [] },
-      { title: 'Action', shows: [] }
-    ]
+      { title: 'Action', shows: [] },
+    ];
     const wrapper = mount(GenresOverview, {
       props: {
-        genres: genres as any
+        genres: genres as any,
       },
       global: {
         stubs: {
-          GenreCarousel: true
-        }
-      }
-    })
+          GenreCarousel: true,
+        },
+      },
+    });
 
-    const carousels = wrapper.findAllComponents({ name: 'GenreCarousel' })
-    expect(carousels).toHaveLength(genres.length)
-  })
-})
+    const carousels = wrapper.findAllComponents({ name: 'GenreCarousel' });
+    expect(carousels).toHaveLength(genres.length);
+  });
+});

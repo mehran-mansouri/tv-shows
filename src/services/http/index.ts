@@ -1,6 +1,6 @@
 interface Response<T> {
-  data?: T | null
-  error?: unknown
+  data?: T | null;
+  error?: unknown;
 }
 
 class HttpClient {
@@ -13,21 +13,21 @@ class HttpClient {
    * @template T - The type of the expected response data.
    */
   public static async get<T>(path: string): Promise<Response<T>> {
-    const baseUrl = import.meta.env.VITE_API_URL
+    const baseUrl = import.meta.env.VITE_API_URL;
 
     try {
-      const response = await fetch(`${baseUrl}${path}`)
-      if(!response.ok) return { error: response.status, data: null }
-      const data = (await response.json()) as T
+      const response = await fetch(`${baseUrl}${path}`);
+      if (!response.ok) return { error: response.status, data: null };
+      const data = (await response.json()) as T;
       return {
         data: data,
-      }
+      };
     } catch (e) {
       return {
         error: e,
-      }
+      };
     }
   }
 }
 
-export default HttpClient
+export default HttpClient;

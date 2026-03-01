@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import Chip from 'primevue/chip'
-import ScreenReader from '@/components/screen-reader/ScreenReader.vue'
+import Chip from 'primevue/chip';
+import ScreenReader from '@/components/screen-reader/ScreenReader.vue';
 
 interface Props {
-  tags: string[]
+  tags: string[];
 }
 
-defineProps<Props>()
+defineProps<Props>();
 </script>
 
 <template>

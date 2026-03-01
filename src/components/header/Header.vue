@@ -46,49 +46,49 @@
 </template>
 
 <script setup lang="ts">
-import InputText from 'primevue/inputtext'
-import IconField from 'primevue/iconfield'
-import InputIcon from 'primevue/inputicon'
-import ProgressSpinner from 'primevue/progressspinner'
-import SearchIcon from '@/assets/search.svg'
-import NoImage from '@/assets/no-image.webp'
-import useSearch from '@/composables/useSearch'
-import { ref, useTemplateRef } from 'vue'
-import { onClickOutside, onKeyStroke } from '@vueuse/core'
+import InputText from 'primevue/inputtext';
+import IconField from 'primevue/iconfield';
+import InputIcon from 'primevue/inputicon';
+import ProgressSpinner from 'primevue/progressspinner';
+import SearchIcon from '@/assets/search.svg';
+import NoImage from '@/assets/no-image.webp';
+import useSearch from '@/composables/useSearch';
+import { ref, useTemplateRef } from 'vue';
+import { onClickOutside, onKeyStroke } from '@vueuse/core';
 
 defineOptions({
   name: 'HeaderComponent',
-})
+});
 
-const searchElm = useTemplateRef('searchElm')
+const searchElm = useTemplateRef('searchElm');
 onClickOutside(searchElm, () => {
-  hideSuggestions()
-})
+  hideSuggestions();
+});
 onKeyStroke('Escape', (e) => {
-  e.preventDefault()
-  hideSuggestions()
-})
+  e.preventDefault();
+  hideSuggestions();
+});
 
-const { isLoading, searchTerm, suggestions } = useSearch()
-const showSearchOverlay = ref(false)
+const { isLoading, searchTerm, suggestions } = useSearch();
+const showSearchOverlay = ref(false);
 
 const showSuggestions = () => {
-  if (!!searchTerm.value) {
-    showSearchOverlay.value = true
+  if (searchTerm.value) {
+    showSearchOverlay.value = true;
   } else {
-    hideSuggestions()
+    hideSuggestions();
   }
-}
+};
 
 const hideSuggestions = () => {
-  showSearchOverlay.value = false
-}
+  showSearchOverlay.value = false;
+};
 
 const resetSuggestions = () => {
-  suggestions.value = []
-  searchTerm.value = ''
-  hideSuggestions()
-}
+  suggestions.value = [];
+  searchTerm.value = '';
+  hideSuggestions();
+};
 </script>
 
 <style scoped lang="scss">

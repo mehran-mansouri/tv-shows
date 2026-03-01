@@ -1,4 +1,4 @@
-import type { Show } from '@/types/Show.ts'
+import type { Show } from '@/types/Show.ts';
 
 export interface Genre {
   title: string;

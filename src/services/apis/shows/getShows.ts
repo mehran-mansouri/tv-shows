@@ -1,4 +1,4 @@
-import HttpClient from '@/services/http'
+import HttpClient from '@/services/http';
 import type { Show } from '@/types';
 
 const getShows = async () => {
@@ -8,6 +8,6 @@ const getShows = async () => {
     data,
     error,
   };
-}
+};
 
-export default getShows
+export default getShows;

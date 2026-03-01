@@ -7,26 +7,24 @@
 </template>
 
 <script setup lang="ts">
-import useShowDetails from '@/composables/useShowDetails'
-import ShowDetails from '@/components/details/ShowDetails.vue'
-import ShimmerComponent from '@/components/details/Shimmer.vue'
-import { useHead } from '@unhead/vue'
-import { computed } from 'vue'
-import ErrorComponent from '@/components/error/Error.vue'
+import useShowDetails from '@/composables/useShowDetails';
+import ShowDetails from '@/components/details/ShowDetails.vue';
+import ShimmerComponent from '@/components/details/Shimmer.vue';
+import { useHead } from '@unhead/vue';
+import { computed } from 'vue';
+import ErrorComponent from '@/components/error/Error.vue';
 
 defineOptions({
   name: 'ShowDetailPage',
-})
+});
 
-const { showDetails, isLoading, hasError } = useShowDetails()
+const { showDetails, isLoading, hasError } = useShowDetails();
 
 const title = computed(
-  () => `${showDetails.value?.name} ${showDetails.value?.premiered.slice(0, 4)}` || 'Show details',
-)
+  () => `${showDetails.value?.name} ${showDetails.value?.premiered.slice(0, 4)}`,
+);
 useHead({
   title,
   meta: [{ name: 'description', content: 'Details of the shows' }],
-})
+});
 </script>
-
-<style scoped></style>

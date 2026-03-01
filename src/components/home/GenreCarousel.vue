@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2> {{ genre.title }} </h2>
+    <h2>{{ genre.title }}</h2>
     <Carousel
       :value="genre.shows"
       :num-visible="5"
@@ -18,14 +18,14 @@
 
 <script setup lang="ts">
 import Carousel from 'primevue/carousel';
-import ShowCard from '@/components/home/ShowCard.vue'
+import ShowCard from '@/components/home/ShowCard.vue';
 import type { Genre } from '@/types';
 
 interface Props {
   genre: Genre;
 }
 
-defineProps<Props>()
+defineProps<Props>();
 
 const responsiveOptions = [
   {

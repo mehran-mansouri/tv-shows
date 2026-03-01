@@ -7,11 +7,11 @@
 </template>
 
 <script setup lang="ts">
-import ErrorIcon from '@/assets/error.svg'
+import ErrorIcon from '@/assets/error.svg';
 
 defineOptions({
   name: 'ErrorComponent',
-})
+});
 </script>
 
 <style scoped lang="scss">

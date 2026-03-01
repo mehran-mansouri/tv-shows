@@ -9,11 +9,11 @@
 </template>
 
 <script setup lang="ts">
-import Skeleton from 'primevue/skeleton'
+import Skeleton from 'primevue/skeleton';
 
 defineOptions({
   name: 'ShimmerComponent',
-})
+});
 </script>
 
 <style scoped lang="scss">

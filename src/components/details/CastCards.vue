@@ -17,14 +17,14 @@
 </template>
 
 <script setup lang="ts">
-import type { Cast } from '@/types'
-import AvatarIcon from '@/assets/avatar.svg'
+import type { Cast } from '@/types';
+import AvatarIcon from '@/assets/avatar.svg';
 
 interface Props {
-  cast: Cast[]
+  cast: Cast[];
 }
 
-defineProps<Props>()
+defineProps<Props>();
 </script>
 
 <style scoped lang="scss">

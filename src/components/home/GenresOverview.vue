@@ -7,7 +7,7 @@
 </template>
 
 <script setup lang="ts">
-import GenreCarousel from '@/components/home/GenreCarousel.vue'
+import GenreCarousel from '@/components/home/GenreCarousel.vue';
 import type { Genre } from '@/types';
 
 interface Props {
