@@ -1,5 +1,5 @@
 <template>
-  <div class="header">
+  <div class="header" ref="searchElm">
     <div class="items-wrapper">
       <RouterLink to="/" class="link">Home</RouterLink>
       <IconField>
@@ -10,6 +10,7 @@
           placeholder="Search"
           v-model="searchTerm"
           @input="showSuggestions"
+          @focus="showSuggestions"
           class="search-field"
         />
       </IconField>
@@ -52,17 +53,31 @@ import ProgressSpinner from 'primevue/progressspinner'
 import SearchIcon from '@/assets/search.svg'
 import NoImage from '@/assets/no-image.webp'
 import useSearch from '@/composables/useSearch'
-import { ref, watch } from 'vue'
+import { ref, useTemplateRef } from 'vue'
+import { onClickOutside, onKeyStroke } from '@vueuse/core'
 
 defineOptions({
   name: 'HeaderComponent',
+})
+
+const searchElm = useTemplateRef('searchElm')
+onClickOutside(searchElm, () => {
+  hideSuggestions()
+})
+onKeyStroke('Escape', (e) => {
+  e.preventDefault()
+  hideSuggestions()
 })
 
 const { isLoading, searchTerm, suggestions } = useSearch()
 const showSearchOverlay = ref(false)
 
 const showSuggestions = () => {
-  showSearchOverlay.value = true
+  if (!!searchTerm.value) {
+    showSearchOverlay.value = true
+  } else {
+    hideSuggestions()
+  }
 }
 
 const hideSuggestions = () => {
@@ -72,11 +87,8 @@ const hideSuggestions = () => {
 const resetSuggestions = () => {
   suggestions.value = []
   searchTerm.value = ''
+  hideSuggestions()
 }
-
-watch(searchTerm, (value) => {
-  if (!value) hideSuggestions()
-})
 </script>
 
 <style scoped lang="scss">
@@ -144,9 +156,10 @@ a {
     background-color: tokens.$color-white;
     position: fixed;
     padding: tokens.$spacing-25;
-    top: $headerHeight + tokens.$spacing-25;
+    top: $headerHeight;
     right: 24px;
     z-index: 1001;
+    width: 280px;
   }
 
   &-wrapper {

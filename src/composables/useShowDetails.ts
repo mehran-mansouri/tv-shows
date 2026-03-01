@@ -1,11 +1,10 @@
 import type { ShowDetails } from '@/types'
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 import getShowDetails from '@/services/apis/shows/getShowDetails.ts'
 import { useRoute } from 'vue-router'
 
 export default function () {
   const route = useRoute()
-  const id = route.params.id as string
 
   const showDetails =ref<ShowDetails>()
   const hasError = ref(false)
@@ -14,6 +13,7 @@ export default function () {
   const fetchDetails = async () => {
     try {
       isLoading.value = true
+      const id = route.params.id as string
       const isIdValid = /^\d+$/.test(id)
       if (!isIdValid) {
         hasError.value = true
@@ -36,6 +36,8 @@ export default function () {
   onMounted(async () => {
     await fetchDetails();
   });
+
+  watch(() => route.params.id, fetchDetails);
 
   return {
     showDetails,

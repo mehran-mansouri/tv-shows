@@ -1,19 +1,8 @@
-<script setup lang="ts">
-import type { Cast } from "@/types";
-import AvatarIcon from "@/assets/avatar.svg";
-
-interface Props {
-  cast: Cast[];
-}
-
-defineProps<Props>();
-</script>
-
 <template>
   <div v-if="cast?.length > 0" class="container">
     <div class="header">Top cast</div>
-    <div class="cards-wrapper">
-      <div v-for="item in cast" :key="item.person.id" class="cast-card">
+    <ul class="cards-wrapper">
+      <li v-for="item in cast" :key="item.person.id" class="cast-card">
         <img
           :src="item.person.image?.medium ?? AvatarIcon"
           :alt="`image of ${item.person.name}`"
@@ -22,13 +11,24 @@ defineProps<Props>();
         <div>
           {{ item.person.name }}
         </div>
-      </div>
-    </div>
+      </li>
+    </ul>
   </div>
 </template>
 
+<script setup lang="ts">
+import type { Cast } from '@/types'
+import AvatarIcon from '@/assets/avatar.svg'
+
+interface Props {
+  cast: Cast[]
+}
+
+defineProps<Props>()
+</script>
+
 <style scoped lang="scss">
-@use "../../styles/tokens" as tokens;
+@use '@/styles/tokens' as tokens;
 
 .header {
   font-size: tokens.$font-size-150;
@@ -41,6 +41,8 @@ defineProps<Props>();
   flex-wrap: wrap;
   gap: tokens.$spacing-50;
   justify-content: flex-start;
+  list-style: none;
+  padding: 0;
 }
 
 .cast {
